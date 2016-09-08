@@ -1,32 +1,32 @@
 
 jQuery(document).ready(function($) {
-	
-	/*define easing you can omit this if 
-	you don't want to use the easing plugin*/
-jQuery.easing.def = "easeInOutCubic";	
 
-	/* create the span tht will be animated across the menu*/
+	/*define easing you can omit this if
+	you don't want to use the easing plugin*/
+jQuery.easing.def = "easeInOutCubic";
+
+	/* create the span tht will be animated across the bs-example-navbar-collapse-1*/
 	/* declare our many variables for easy ref*/
 		var $span = $('<span class="colourful"></span>');
-		$span.insertBefore($("#menu ul"));
-		
-		var $menu_link = $('#menu li a'),
-		$hovered =  $('#menu a.hovered'),/**/
-		$hovered_pos = $hovered.position('#menu');/*position of hovered menu item*/
-		
+		$span.insertBefore($("#bs-example-navbar-collapse-1 ul"));
+
+		var $menu_link = $('#bs-example-navbar-collapse-1 li a'),
+		$hovered =  $('#bs-example-navbar-collapse-1 a.hovered'),/**/
+		$hovered_pos = $hovered.position('#bs-example-navbar-collapse-1');/*position of hovered bs-example-navbar-collapse-1 item*/
+
 		/* declare our many colors that can confuse a chameleon*/
 		var $colour_arr = ['#fbb92e','#f8d52f','#b4f62f','#54f7a8','#3ff7f3','#3a97fa','#6835f9','#d544f6','#f650ab'];
-		
+
 		/*iterate through all menu links and apply colors to border top */
 		$menu_link.each(function(index){
-			
+
 					$menu_link.eq(index).css('border-color',$colour_arr[index]);
-				
-			});	
-			
+
+			});
+
 	/* all the magic happens here*/
 	function init () {
-		
+
 		if($hovered_pos) {
 				$span.css('left',$hovered_pos);
 				var index = 0;
@@ -37,32 +37,32 @@ jQuery.easing.def = "easeInOutCubic";
 					}
 				}
 				$span.css('background',$colour_arr[index]);
-				
+
 		}
-		
+
 		/*mouseenter funtion*/
 		$menu_link.each(
 			function( intIndex ){
 				$(this).on (
 					"mouseenter",
 						function(event){
-							
+
 							var x = $(this).position('#menu');
 							x = x.left;
-							
+
 								$span.css('background',$colour_arr[intIndex]);
-							
+
 							$span.stop();
 							$span.animate({
-								
+
 								left: x
 							  },600);
 						}
 					);
-		 
+
 				}
 		 );
-		 
+
 		/* mouseout function*/
 		$menu_link.each(
 			function( intIndex ){
@@ -80,11 +80,11 @@ jQuery.easing.def = "easeInOutCubic";
 								}
 							}
 								$span.css('background',colour_arr[index]);
-							
-						} 
-						
+
+						}
+
 		  				$span.animate({
-								
+
 								left: x
 							  },600);
 						}
